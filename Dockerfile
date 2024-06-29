@@ -13,8 +13,8 @@ RUN npm install
 # Sao chép toàn bộ mã nguồn vào thư mục làm việc
 COPY . .
 
-# Expose cổng ${DEV_APP_PORT} của container
-EXPOSE ${DEV_APP_PORT}
+# Expose cổng ${PRO_APP_PORT} của container
+EXPOSE ${PRO_APP_PORT}
 
 # Command để chạy ứng dụng khi container được start
-CMD ["npm", "run", "dev"]
+CMD ["node", "server.js"]

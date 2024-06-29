@@ -1,12 +1,12 @@
 version: '3'
 services:
-  redis:
-    image: "redis:alpine"
+  web:
+    build: .
     ports:
-      - "6379:6379"
-    networks:
-      - app-network
-
-networks:
-  app-network:
-    driver: bridge
+      - "${PRO_APP_PORT}:${PRO_APP_PORT}"
+    environment:
+      - NODE_ENV=development
+      - PRO_APP_PORT=3000
+    volumes:
+      - .:/app
+      - /app/node_modules
